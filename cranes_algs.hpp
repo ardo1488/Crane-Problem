@@ -43,27 +43,22 @@ path crane_unloading_exhaustive(const grid& setting)
 
   for(size_t steps = 0; steps <= max_steps; steps++) 
   {
-    std::vector<step_direction> directions(steps, STEP_DIRECTION_SOUTH);
-    directions.insert(directions.end(), steps, STEP_DIRECTION_EAST);
+    std::vector<step_direction> directions(steps, STEP_DIRECTION_EAST);
+    directions.resize(max_steps, STEP_DIRECTION_SOUTH);
 
     do 
     {
       path current(setting);
 
-      for(size_t i = 0; i < directions.size(); i++) 
+      for(const step_direction& direction : directions) 
       {
-        if(!current.is_step_valid(directions[i]))
+        if(current.is_step_valid(direction)) 
         {
-          break;
-        }
-
-        if(directions[i] == STEP_DIRECTION_SOUTH) 
-        {
-          current.add_step(STEP_DIRECTION_SOUTH);
+          current.add_step(direction);
         } 
         else 
         {
-          current.add_step(STEP_DIRECTION_EAST);
+          break;
         }
       }
 
@@ -156,11 +151,10 @@ path crane_unloading_dyn_prog(const grid& setting)
 
   cell_type *best = &A[best_row_path][best_column_path]; 
   assert(best->has_value());
+  
+  return **best;
+}
 
-  //  std::cout << "total cranes" << (**best).total_cranes() << std::endl;
-
-   return **best;
-	}
 }
 
 
