@@ -92,7 +92,7 @@ path crane_unloading_dyn_prog(const grid& setting)
   A[0][0] = path(setting);
   assert(A[0][0].has_value());
 
-  int most_cranes = 0;
+  unsigned int most_cranes = 0;
   coordinate best_row_path = 0;
   coordinate best_column_path = 0;
 
