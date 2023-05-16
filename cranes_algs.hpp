@@ -37,8 +37,6 @@ path crane_unloading_exhaustive(const grid& setting)
   const size_t max_steps = setting.rows() + setting.columns() - 2;
   assert(max_steps < 64);
 
-  // TODO: implement the exhaustive search algorithm, then delete this
-  // comment.
   path best(setting);
 
   for(size_t steps = 0; steps <= max_steps; steps++) 
