@@ -1,0 +1,9 @@
+# Documents to exclude
+*.docx
+*.txt
+
+# Executables
+*.out
+
+# Compiled Objects
+*.o
