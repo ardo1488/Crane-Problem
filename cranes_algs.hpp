@@ -74,7 +74,6 @@ path crane_unloading_exhaustive(const grid& setting)
 // programming algorithm.
 //
 // The grid must be non-empty.
-//path crane_unloading_dyn_prog(const grid& setting) {
 path crane_unloading_dyn_prog(const grid& setting) 
 {
 
@@ -154,5 +153,3 @@ path crane_unloading_dyn_prog(const grid& setting)
 }
 
 }
-
-
